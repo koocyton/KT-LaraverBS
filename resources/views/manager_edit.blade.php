@@ -1,0 +1,64 @@
+
+				<div style="top:0px;position:relative;">
+					<div style="padding:20px;">
+
+					    <div class="radius-4 ct-nav">
+							<table class="ct-nav-table">
+								<tr>
+									<td class="ct-nav-left">
+										<b>　权限管理 － <?php echo $manager->email;?></b>
+									</td>
+									<td class="ct-nav-right">
+										<a href="javascript:;" style="margin-right:10px;">
+											<button class="gray-btn" style="height:25px;line-height:25px;width:60px;">重置密码</button>
+										</a>
+									</td>
+								</tr>
+							</table>
+						</div>
+
+                        <div class="content-body radius-4 content-border" style="margin-top:20px;">
+							<form action="/manager/update/<?php echo $manager->id;?>" method="post">
+								<div style="height:35px;line-height:35px;">　ID：<?php echo $manager->id;?></div>
+								<div style="height:35px;line-height:35px;">　Email：<?php echo $manager->email;?></div>
+								<div style="height:35px;line-height:35px;">　创建时间：<?php echo $manager->created_at;?></div>
+								<div style="height:35px;line-height:35px;">　最近登录：<?php echo $manager->updated_at;?></div>
+								<div class="input-box" style="height:35px;line-height:35px;">　设置密码：
+									<div class="input-box" style="width:200px;position:relative;">
+										<input type="text" class="text-input" name="password" value="********">
+									</div>
+									<div class="input-box">
+										<button type="submit" style="margin-left:15px;width:80px;" class="submit-btn">更新密码</button>
+									</div>
+								</div>
+							</form>
+                        </div>
+
+                        <div class="content-body" style="margin:20px 0 0 0;padding:10px 0 0 0">
+							<b>配置权限</b>
+                        </div>
+
+                        <div class="content-body" style="margin-top:5px;padding:0;">
+							<form action="/manager/update/<?php echo $manager->id;?>" method="post">
+								<div style="height:25px;padding:0 0 0 20px;"><b>主控</b></div>
+									<div style="height:25px;padding:0 0 0 40px;">添加广告 <input type="checkbox" name="limits[]" value="advert"></div>
+									<div style="height:25px;padding:0 0 0 40px;">添加素材 <input type="checkbox" name="limits[]" value="resouse"></div>
+									<div style="height:25px;padding:0 0 0 40px;">添加联盟 <input type="checkbox" name="limits[]" value="union"></div>
+									<div style="height:25px;padding:0 0 0 27px;">
+										<span class="octicon" style="font-size:12px;width:10px;padding:0 0 3px 0">&#xf0a3;</span>
+										数据统计
+									</div>
+										<div style="height:25px;padding:0 0 0 60px;">数据简报 <input type="checkbox" name="limits[]" value="bulletin"></div>
+										<div style="height:25px;padding:0 0 0 60px;">各项统计 <input type="checkbox" name="limits[]" value="count"></div>
+										<div style="height:25px;padding:0 0 0 60px;">优化分析 <input type="checkbox" name="limits[]" value="optimize"></div>
+								<div style="height:25px;padding:0 0 0 20px;"><b>管理员</b></div>
+									<div style="height:25px;padding:0 0 0 40px;">操作日志 <input type="checkbox" name="limits[]" value="log"></div>
+									<div style="height:25px;padding:0 0 0 40px;">权限管理 <input type="checkbox" name="limits[]" value="manager"></div>
+								<div style="height:25px;padding:0 0 0 20px;">
+									<button button-class="submit-btn" type="submit" class="submit-btn">更新权限</button>
+								</div>
+							</form>
+						</div>
+
+                    </div>
+                </div>
