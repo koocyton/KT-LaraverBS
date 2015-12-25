@@ -2,6 +2,8 @@
 
 namespace App\Http\Controllers;
 
+use Auth;
+use Cookie;
 use App\Http\Controllers\Controller as AppBaseController;
 
 class LoginController extends AppBaseController
@@ -23,7 +25,7 @@ class LoginController extends AppBaseController
         // 设置 Cookie
         Cookie::queue('locale', $this->locale, 36000000);
         // 设置背景图
-        return view('login_form', ["locale"=>$this->locale]);
+        return view('__login', ["locale"=>$this->locale]);
 	}
 
     /*

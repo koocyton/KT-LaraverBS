@@ -50,6 +50,7 @@ abstract class Controller extends BaseController
         });
     }
 
+    // 设置本地语言
     protected function setLocale()
     {
         // 从 Cookie 获取本地化设置
@@ -66,21 +67,31 @@ abstract class Controller extends BaseController
         App::setLocale($this->locale);
     }
 
+    // 组织分页数据
+    public function getPaging($current, $limit, $total)
+    {
+        return array("c"=>$current, "limit"=>$limit, "tatal"=>$total);
+    }
+
+    // 弹出错误
     public function showSlidMessage($msg)
     {
         return response("<script>$.KTAnchor.showSlidMessage('".$msg."');</script>");
     }
 
+    // 页面跳转
     public function topLocation($url)
     {
         return response("<script>window.top.location='".$url."';</script>");
     }
 
+    // pjax 跳转
     public function pushState($url)
     {
         return response("<script>window.history.pushState(null, '', '".$url."');$(window).trigger('popstate');</script>");
     }
 
+    // 刷新右侧
     public function flushLocation()
     {
         return response("<script>$(window).trigger('popstate');</script>");

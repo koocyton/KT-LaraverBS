@@ -31,6 +31,10 @@ Route::group(['prefix'=>'login'], function(){
 	Route::get('signout', 'LoginController@signout');
 });
 
+Route::group(['prefix'=>'log'], function(){
+	Route::get('/', 'LogController@main');
+});
+
 Route::group(['prefix'=>'manager'], function(){
 	Route::get('/', 'ManagerController@main');
 	Route::post('create', 'ManagerController@create');

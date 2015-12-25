@@ -55,9 +55,9 @@
               <script>
                 var menu_data = [
                     {"text":"主控", "menus":[
-                        {"text":"添加广告", "href":"/advert"},
-                        {"text":"添加素材", "href":"/resouse"},
-                        {"text":"添加联盟", "href":"/union"},
+                        {"text":"广告管理", "href":"/advert"},
+                        {"text":"素材管理", "href":"/resouse"},
+                        {"text":"联盟管理", "href":"/union"},
                         {"text":"数据统计", "open":true, "menus":[
                             {"text":"数据简报", "href":"/bulletin"},
                             {"text":"各项统计", "href":"/count"},
