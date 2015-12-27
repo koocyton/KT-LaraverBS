@@ -19,6 +19,7 @@
 
                         <div class="content-body radius-4 content-border" style="margin-top:20px;">
 							<form action="/manager/update/<?php echo $manager->id;?>" method="post">
+								<input type="hidden" name="_token" value="{{csrf_token()}}" />
 								<div style="height:35px;line-height:35px;">　ID：<?php echo $manager->id;?></div>
 								<div style="height:35px;line-height:35px;">　Email：<?php echo $manager->email;?></div>
 								<div style="height:35px;line-height:35px;">　创建时间：<?php echo $manager->created_at;?></div>

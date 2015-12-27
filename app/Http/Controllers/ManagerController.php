@@ -53,6 +53,20 @@ class ManagerController extends AppBaseController
     }
 
     /*
+     * 跟新管理员密码
+     */
+    public function update($id)
+	{
+        if (!empty($_POST["password"]))
+        {
+            $password = Hash::make($_POST["password"]);
+            DB::table('users')->where('id', 1)->update(array('password' => $password));
+        }
+        // 渲染界面
+        return $this->flushLocation("更新完毕");
+    }
+
+    /*
      * 删除管理员
      */
     public function delete($id)

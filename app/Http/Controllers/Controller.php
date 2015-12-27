@@ -92,8 +92,13 @@ abstract class Controller extends BaseController
     }
 
     // 刷新右侧
-    public function flushLocation()
+    public function flushLocation($msg="")
     {
-        return response("<script>$(window).trigger('popstate');</script>");
+        if (!empty($msg)) {
+            return response("<script>$.KTAnchor.showSlidMessage('".$msg."');$(window).trigger('popstate');</script>");
+        }
+        else {
+            return response("<script>$(window).trigger('popstate');</script>");
+        }
     }
 }
