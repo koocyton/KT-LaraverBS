@@ -33,6 +33,10 @@ abstract class Controller extends BaseController
                 if (Request::ajax()) {
                     // 记录日志
                     $this->writeActionLog();
+                    // 判断权限
+                    if (!$this->checkPrivileges()) {
+                        return KTAnchor::showSlidMessage(Lang::get('login.You have no rights'));
+                    }
                     // 返回空
                     // return;
                 }
@@ -54,6 +58,19 @@ abstract class Controller extends BaseController
                 }
             }
         });
+    }
+
+    // 判断权限
+    private function checkPrivileges()
+    {
+        $actionPrivilegesName = strtolower(substr(get_class($this), 21, -10));
+        $privileges = explode(",", Auth::user()["attributes"]["privileges"]);
+        if (in_array($actionPrivilegesName, $privileges)) {
+            return true;
+        }
+        else {
+            return false;
+        }
     }
 
     // 记录日志

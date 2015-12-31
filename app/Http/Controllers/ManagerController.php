@@ -49,8 +49,15 @@ class ManagerController extends AppBaseController
 	{
         // 管理员
         $manager = DB::table('users')->where('id', $id)->first();
+        // 设定权限
+        $privileges = explode(",", $manager->privileges);
+        // 设定 checked
+        $privileges_checked = array();
+        foreach($privileges as $privilege) {
+            $privileges_checked[$privilege] = "checked";
+        }
         // 渲染界面
-        return view('manager_edit', ["manager"=>$manager]);
+        return view('manager_edit', ["manager"=>$manager, "privileges_checked"=>$privileges_checked]);
     }
 
     /*

@@ -9,4 +9,5 @@ return [
 	"Location" => "한국어",
 	'Failed' => 'These credentials do not match our records.',
 	'Throttle' => 'Too many login attempts. Please try again in :seconds seconds.',
+	"You have no rights" => "너는 권리가 없다.",
 ];
