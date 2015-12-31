@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use DB;
 use Hash;
 use App\Http\Controllers\Controller as AppBaseController;
+use App\Http\Middleware\KTAnchor;
 
 class ManagerController extends AppBaseController
 {
@@ -38,7 +39,7 @@ class ManagerController extends AppBaseController
         // 保存
         DB::table('users')->insert(array('email'=>$_POST["email"], 'password'=>Hash::make($_POST["password"]), 'created_at'=>date("Y-m-d H:i:s")));
         // 刷新主界面
-        return $this->flushLocation();
+        return KTAnchor::flushLocation();
     }
 
     /*
@@ -63,7 +64,7 @@ class ManagerController extends AppBaseController
             DB::table('users')->where('id', 1)->update(array('password' => $password));
         }
         // 渲染界面
-        return $this->flushLocation("更新完毕");
+        return KTAnchor::flushLocation("更新完毕");
     }
 
     /*

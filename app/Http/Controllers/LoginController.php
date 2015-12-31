@@ -3,8 +3,10 @@
 namespace App\Http\Controllers;
 
 use Auth;
+use Lang;
 use Cookie;
 use App\Http\Controllers\Controller as AppBaseController;
+use App\Http\Middleware\KTAnchor;
 
 class LoginController extends AppBaseController
 {
@@ -38,10 +40,10 @@ class LoginController extends AppBaseController
         // 登录
         if (Auth::attempt(['email' => $_POST["account"], 'password' => $_POST["password"]], $rember))
         {
-            return $this->topLocation('/manager');
+            return KTAnchor::topLocation('/manager');
         }
         else {
-            return $this->showSlidMessage(Lang::get('login.Failed'));
+            return KTAnchor::showSlidMessage(Lang::get('login.Failed'));
         }
 	}
 
@@ -51,6 +53,6 @@ class LoginController extends AppBaseController
     public function signout()
 	{
         Auth::logout();
-        return $this->topLocation('/login');
+        return KTAnchor::topLocation('/login');
 	}
 }
