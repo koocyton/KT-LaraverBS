@@ -119,7 +119,7 @@
 										}
 										?>
 										</td>
-										<td style="text-align:left;"></td>
+										<td style="text-align:left;"><?php echo $manager->privileges?></td>
 									</tr>
                                     <?php } ?>
                                 </tbody>
