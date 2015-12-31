@@ -41,20 +41,21 @@
 
                         <div class="content-body" style="margin-top:5px;padding:0;">
 							<form action="/manager/update/<?php echo $manager->id;?>" method="post">
+								<input type="hidden" name="_token" value="{{csrf_token()}}" />
 								<div style="height:25px;padding:0 0 0 20px;"><b>主控</b></div>
-									<div style="height:25px;padding:0 0 0 40px;">添加广告 <input type="checkbox" name="limits[]" value="advert"></div>
-									<div style="height:25px;padding:0 0 0 40px;">添加素材 <input type="checkbox" name="limits[]" value="resouse"></div>
-									<div style="height:25px;padding:0 0 0 40px;">添加联盟 <input type="checkbox" name="limits[]" value="union"></div>
+									<div style="height:25px;padding:0 0 0 40px;"><label>添加广告 <input type="checkbox" name="limits[]" value="advert"></label></div>
+									<div style="height:25px;padding:0 0 0 40px;"><label>添加素材 <input type="checkbox" name="limits[]" value="resouse"></label></div>
+									<div style="height:25px;padding:0 0 0 40px;"><label>添加联盟 <input type="checkbox" name="limits[]" value="union"></label></div>
 									<div style="height:25px;padding:0 0 0 27px;">
 										<span class="octicon" style="font-size:12px;width:10px;padding:0 0 3px 0">&#xf0a3;</span>
 										数据统计
 									</div>
-										<div style="height:25px;padding:0 0 0 60px;">数据简报 <input type="checkbox" name="limits[]" value="bulletin"></div>
-										<div style="height:25px;padding:0 0 0 60px;">各项统计 <input type="checkbox" name="limits[]" value="count"></div>
-										<div style="height:25px;padding:0 0 0 60px;">优化分析 <input type="checkbox" name="limits[]" value="optimize"></div>
+										<div style="height:25px;padding:0 0 0 60px;"><label>数据简报 <input type="checkbox" name="limits[]" value="bulletin"></label></div>
+										<div style="height:25px;padding:0 0 0 60px;"><label>各项统计 <input type="checkbox" name="limits[]" value="count"></label></div>
+										<div style="height:25px;padding:0 0 0 60px;"><label>优化分析 <input type="checkbox" name="limits[]" value="optimize"></label></div>
 								<div style="height:25px;padding:0 0 0 20px;"><b>管理员</b></div>
-									<div style="height:25px;padding:0 0 0 40px;">操作日志 <input type="checkbox" name="limits[]" value="log"></div>
-									<div style="height:25px;padding:0 0 0 40px;">权限管理 <input type="checkbox" name="limits[]" value="manager"></div>
+									<div style="height:25px;padding:0 0 0 40px;"><label>操作日志 <input type="checkbox" name="limits[]" value="log"></label></div>
+									<div style="height:25px;padding:0 0 0 40px;"><label>权限管理 <input type="checkbox" name="limits[]" value="manager"></label></div>
 								<div style="height:25px;padding:0 0 0 20px;">
 									<button button-class="submit-btn" type="submit" class="submit-btn">更新权限</button>
 								</div>

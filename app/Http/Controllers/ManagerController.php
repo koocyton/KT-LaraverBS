@@ -58,10 +58,15 @@ class ManagerController extends AppBaseController
      */
     public function update($id)
 	{
-        if (!empty($_POST["password"]))
+        if (!empty($_POST["password"]) && $_POST["password"]!="********")
         {
             $password = Hash::make($_POST["password"]);
-            DB::table('users')->where('id', 1)->update(array('password' => $password));
+            DB::table('users')->where('id', $id)->update(array('password' => $password));
+        }
+        if (!empty($_POST["limits"]))
+        {
+            $privileges = implode(",", $_POST["limits"]);
+            DB::table('users')->where('id', $id)->update(array('privileges' => $privileges));
         }
         // 渲染界面
         return KTAnchor::flushLocation("更新完毕");
