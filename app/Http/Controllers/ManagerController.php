@@ -37,7 +37,7 @@ class ManagerController extends AppBaseController
             return $this->showSlidMessage('错误：邮箱已经存在，请使用其他邮箱');
         }
         // 保存
-        DB::table('users')->insert(array('email'=>$_POST["email"], 'password'=>Hash::make($_POST["password"]), 'created_at'=>date("Y-m-d H:i:s")));
+        DB::table('users')->insertGetId(array('email'=>$_POST["email"], 'password'=>Hash::make($_POST["password"]), 'created_at'=>date("Y-m-d H:i:s")));
         // 刷新主界面
         return KTAnchor::flushLocation();
     }

@@ -17,7 +17,9 @@
 		  </div>
 		</td>
 		<td class="nav-right">
-
+		  <div class="nav-item" style="margin-right:21px;">
+            <span style="font-size:16px;"><?php echo $account?></span>
+		  </div>
 		  <div class="nav-item dropdown-container" style="margin-right:21px;">
 			<a href="javascript:;" pushstate="no" title="设置" class="nav-item bold-medium" style="height:40px;line-height:40px;">
 			  <span class="octicon" style="font-size:23px;">&#xf02f;</span>

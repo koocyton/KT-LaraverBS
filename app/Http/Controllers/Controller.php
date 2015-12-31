@@ -7,6 +7,7 @@ use Cookie;
 use App;
 use Lang;
 use Request;
+use DB;
 use Illuminate\Foundation\Bus\DispatchesJobs;
 use Illuminate\Routing\Controller as BaseController;
 use Illuminate\Foundation\Validation\ValidatesRequests;
@@ -30,11 +31,15 @@ abstract class Controller extends BaseController
             if (Auth::check()) {
                 // 如果是 Ajax 请求
                 if (Request::ajax()) {
-                    return;
+                    // 记录日志
+                    $this->writeActionLog();
+                    // 返回空
+                    // return;
                 }
                 // 如果是浏览器直接刷新的
                 else {
-                    return view('__portal', ["locale"=>$this->locale]);
+                    $account = Auth::user()["attributes"]["email"];
+                    return view('__portal', ["locale"=>$this->locale, "account"=>$account]);
                 }
             }
             // 如果还没登录
@@ -49,6 +54,22 @@ abstract class Controller extends BaseController
                 }
             }
         });
+    }
+
+    // 记录日志
+    private function writeActionLog()
+    {
+        $user = Auth::user();
+        // 忽略 request = /log ...
+        if (strpos($_SERVER["REQUEST_URI"], "/log")===false)
+        {
+            // 记录 session 已经失效的请求
+            $email = !empty($user) ? $user["attributes"]["email"] : "";
+            // 记录日志
+            $log = ["account"=>$email, "created_at"=>date("Y-m-d H:i:s"), "request_ip"=>$_SERVER["REMOTE_ADDR"], "request_method"=>$_SERVER["REQUEST_METHOD"],"request_action"=>$_SERVER["REQUEST_URI"]];
+            // 自增 ID 的插入
+            DB::table('log')->insertGetId($log);
+        }
     }
 
     // 设置本地语言

@@ -37,28 +37,26 @@
 										<td style="width:80px;">ID</td>
 										<td style="width:160px;">用户</td>
 										<td style="width:130px;">时间</td>
+										<td style="width:130px;">IP</td>
 										<td style="text-align:left;">&nbsp;操作</td>
 									</tr>
     							</thead>
 								<tbody>
-									<tr>
-										<td>102</td>
-										<td>koocyton@gmail.com</td>
-										<td>2015-12-25 12:12:12</td>
-										<td style="text-align:left;">&nbsp;/manager/edit/123</td>
+                                    <?php foreach($logs as $log) {?>
+                                    <tr>
+										<td><?php echo $log->id?></td>
+										<td><?php echo $log->account?></td>
+										<td><?php echo $log->created_at?></td>
+										<td><?php echo $log->request_ip?></td>
+										<td style="text-align:left;">&nbsp;[ <?php echo $log->request_method?> ] &nbsp; <?php echo $log->request_action?></td>
 									</tr>
-    								<tr>
-										<td>101</td>
-										<td>koocyton@gmail.com</td>
-										<td>2015-12-25 12:12:12</td>
-										<td style="text-align:left;">&nbsp;/manager</td>
-									</tr>
+                                    <?php } ?>
                                 </tbody>
                             </table>
                         </div>
 
                         <div style="margin-top:20px;">
-                            <div class="paging-container" style="text-align:right;" tatal="1000" current="<?php echo $paging["c"]?>" limit="30"></div>
+                            <div class="paging-container" style="text-align:right;" tatal="<?php echo $paging["total"]?>" current="<?php echo $paging["c"]?>" limit="<?php echo $paging["limit"]?>"></div>
                         </div>
 
                     </div>
