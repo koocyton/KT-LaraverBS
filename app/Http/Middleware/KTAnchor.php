@@ -5,9 +5,12 @@ namespace App\Http\Middleware;
 class KTAnchor
 {
     // 组织分页数据
-    public static function getPaging($current, $limit, $total)
+    public static function getPaging($paging_symbol, $limit, $total)
     {
-        return array("c"=>$current, "limit"=>$limit, "tatal"=>$total);
+        // 检查是否合法
+        $current = (empty($_GET[$paging_symbol]) || !is_numeric($_GET[$paging_symbol]) || $_GET[$paging_symbol]<0) ? 1 : $_GET[$paging_symbol];
+        // 返回分页的信息
+        return array("current"=>$current, "limit"=>$limit, "total"=>$total);
     }
 
     // 弹出错误

@@ -16,12 +16,10 @@ class ManagerController extends AppBaseController
 	{
         // 搜索条件
         $q = empty($_GET["q"]) ? "" : $_GET["q"];
-        // 分页从第几个开始算，第一个是 1 , 而不是 0
-        $c = empty($_GET["c"]) ? "1" : $_GET["c"];
-        // 管理员列表
-        $managers = DB::table('users')->orderBy('id','desc')->skip($c-1)->take(30)->get();
         // 分页信息
-        $paging = array("c"=>$c, "limit"=>30, "tatal"=>DB::table('users')->count());
+        $paging = KTAnchor::getPaging("c", 30, DB::table('users')->count());
+        // 管理员列表
+        $managers = DB::table('users')->orderBy('id','desc')->skip($paging["current"]-1)->take(30)->get();
         // 渲染界面
         return view('manager_main', ["q"=>$q, "managers"=>$managers, "paging"=>$paging]);
 	}

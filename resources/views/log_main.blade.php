@@ -56,7 +56,7 @@
                         </div>
 
                         <div style="margin-top:20px;">
-                            <div class="paging-container" style="text-align:right;" tatal="<?php echo $paging["total"]?>" current="<?php echo $paging["c"]?>" limit="<?php echo $paging["limit"]?>"></div>
+                            <div class="paging-container" style="text-align:right;" total="<?php echo $paging["total"]?>" current="<?php echo $paging["current"]?>" limit="<?php echo $paging["limit"]?>"></div>
                         </div>
 
                     </div>

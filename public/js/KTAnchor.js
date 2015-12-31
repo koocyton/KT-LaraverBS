@@ -587,12 +587,12 @@
 				// jQuery 对象
 				var $paging_elt = $(paging_bar);
 				// 获取主要的数据
-				var tatal = 0 + $paging_elt.attr("tatal");
+				var total = 0 + $paging_elt.attr("total");
 				var current = 0 + $paging_elt.attr("current");
 				var limit = $paging_elt.attr("limit");
 				if (typeof(limit)=="undefined") limit = $.KTAnchor.paging_limit;
 				// 最大页码 当前页码
-				var max_page = Math.ceil(tatal / limit);
+				var max_page = Math.ceil(total / limit);
 				var current_page = Math.ceil(current / limit);
 				// 分页最长显示 7 个
 				var page_list = [1,2,3,4,5,6,7];
