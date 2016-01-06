@@ -33,5 +33,4 @@ CREATE TABLE IF NOT EXISTS `log` (
 -- INSERT DATA -------------------------------
 
 INSERT INTO `users` (`id`, `email`, `password`, `privileges`, `remember_token`, `created_at`, `updated_at`) VALUES
-(1, 'koocyton@gmail.com', '$2y$10$nESxkc/IhXhXsWyJw8HdOuaSfEpSGJc0YusciWhe2LlzN/w64EptS', 'manager,log', '', '2015-12-01 10:10:36', '2015-12-22 13:47:36'),
-(2, 'liuyi@doopp.com', '$2y$10$btLBNhu6kBBnc5muoFc.Q.u9ymPO.5nv3gRxewdsihUsFGfMhrEx6', 'manager,log', '', '2015-12-05 05:14:57', '2015-12-19 05:15:11');
+(1, 'admin@doopp.com', '$2y$10$eLC.jNm5NIEnd28cW.5jHOiH9jEHTvShMjF22fB/FrUTy7Et6O5PC', 'manager,log', '', '2015-12-01 10:10:36', '2015-12-22 13:47:36');
