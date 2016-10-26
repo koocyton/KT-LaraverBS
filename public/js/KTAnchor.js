@@ -404,13 +404,14 @@
 				var $form = $(form);
 				$form.find(":input").each(function(key, input_elt){
 					$(input_elt).bind("change keyup", function(){
+						var submit_btn = $form.find("button[type='submit']");
+						var button_class = submit_btn.attr("button-class");
+						var submit_class = (button_class && button_class=="submit-btn") ? "submit-btn" : "button-btn";
 						if ($form.checkInputs()){
-							var button_class = $form.find("button[type='submit']").attr("button-class");
-							var submit_class = (button_class && button_class=="submit-btn") ? "submit-btn" : "button-btn";
-							$form.find("button[type='submit']").removeClass("disable-btn").addClass(submit_class);
+							submit_btn.removeClass("disable-btn").addClass(submit_class);
 						}
 						else {
-							$form.find("button[type='submit']").removeClass(submit_class).addClass("disable-btn");
+							submit_btn.removeClass(submit_class).addClass("disable-btn");
 						}
 					});
 				});

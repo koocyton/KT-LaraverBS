@@ -10,7 +10,11 @@ use App\Http\Middleware\KTAnchor;
 
 class LoginController extends AppBaseController
 {
-    // 不检查登录
+    /*
+     * 不检查登录
+     *
+     * @return void
+     */
     public function __construct()
     {
         // 本地化设置
@@ -21,6 +25,8 @@ class LoginController extends AppBaseController
 
     /*
      * 登录的表单
+     *
+     * @return Object:view()
      */
     public function form()
 	{
